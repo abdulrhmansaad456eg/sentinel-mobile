@@ -38,19 +38,17 @@ jobs:
 
       - name: Build APK
         run: |
-          echo "Starting build..."
-          flutter build apk --release --verbose 2>&1 | tee build.log || true
-          echo "Build finished with code $?"
-          cat build.log | tail -100
-          echo "Checking for APK..."
-          ls -la build/app/outputs/flutter-apk/ 2>&1 || echo "APK directory not found"
-          find . -name "*.apk" 2>/dev/null | head -5 || echo "No APK files found anywhere"
+          flutter build apk --release
 
-      - name: Find and Upload APK
+      - name: List build outputs
+        run: |
+          echo "=== Looking for APK files ==="
+          find build -name "*.apk" -type f 2>/dev/null
+          echo "=== Build outputs directory ==="
+          ls -la build/app/outputs/flutter-apk/ 2>/dev/null || echo "Directory not found"
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: release-apk
-          path: |
-            **/*.apk
-          if-no-files-found: warn
+          path: build/app/outputs/flutter-apk/app-release.apk
