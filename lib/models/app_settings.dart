@@ -14,7 +14,7 @@ class AppSettings {
   factory AppSettings.defaultSettings() {
     return AppSettings(
       languageCode: 'en',
-      isDarkMode: true,
+      isDarkMode: false,
       notificationsEnabled: true,
       lastUpdated: DateTime.now(),
     );
@@ -23,7 +23,7 @@ class AppSettings {
   factory AppSettings.fromJson(Map<String, dynamic> json) {
     return AppSettings(
       languageCode: json['languageCode'] ?? 'en',
-      isDarkMode: json['isDarkMode'] ?? true,
+      isDarkMode: json['isDarkMode'] ?? false,
       notificationsEnabled: json['notificationsEnabled'] ?? true,
       lastUpdated: DateTime.parse(json['lastUpdated'] ?? DateTime.now().toIso8601String()),
     );

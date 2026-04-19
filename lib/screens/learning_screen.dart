@@ -85,7 +85,7 @@ class _LearningScreenState extends State<LearningScreen> {
   void _showTopicDetail(LearningTopic topic) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppTheme.darkSurface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -237,6 +237,8 @@ class _LearningScreenState extends State<LearningScreen> {
         return AppTheme.warningColor;
       case 'technical':
         return AppTheme.accentColor;
+      case 'advanced':
+        return const Color(0xFF7C3AED); // Purple for advanced
       default:
         return AppTheme.infoColor;
     }
@@ -252,6 +254,8 @@ class _LearningScreenState extends State<LearningScreen> {
         return Icons.psychology;
       case 'technical':
         return Icons.computer;
+      case 'advanced':
+        return Icons.star;
       default:
         return Icons.book;
     }
@@ -269,7 +273,7 @@ class _LearningScreenState extends State<LearningScreen> {
         : _topics.where((t) => t.category == _selectedCategory).toList();
 
     return Scaffold(
-      backgroundColor: AppTheme.darkBackground,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: const CustomAppBar(
         title: 'learning_center',
       ),
@@ -277,8 +281,8 @@ class _LearningScreenState extends State<LearningScreen> {
           ? const LoadingIndicator(message: 'loading')
           : RefreshIndicator(
               onRefresh: _loadData,
-              color: AppTheme.primaryColor,
-              backgroundColor: AppTheme.darkSurface,
+              color: Theme.of(context).colorScheme.primary,
+              backgroundColor: Theme.of(context).colorScheme.surface,
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.all(16),
@@ -288,7 +292,7 @@ class _LearningScreenState extends State<LearningScreen> {
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: AppTheme.darkCard,
+                        color: Theme.of(context).colorScheme.surface,
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Column(
@@ -305,13 +309,13 @@ class _LearningScreenState extends State<LearningScreen> {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                                 decoration: BoxDecoration(
-                                  color: AppTheme.primaryColor.withOpacity(0.2),
+                                  color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Text(
                                   '$completed / $total',
                                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                    color: AppTheme.primaryColor,
+                                    color: Theme.of(context).colorScheme.primary,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -324,8 +328,8 @@ class _LearningScreenState extends State<LearningScreen> {
                             child: LinearProgressIndicator(
                               value: total > 0 ? completed / total : 0,
                               minHeight: 12,
-                              backgroundColor: AppTheme.darkSurface,
-                              valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.primaryColor),
+                              backgroundColor: Theme.of(context).colorScheme.surfaceVariant ?? Theme.of(context).colorScheme.surface,
+                              valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.primary),
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -350,10 +354,10 @@ class _LearningScreenState extends State<LearningScreen> {
                               label: Text(cat == 'all' ? 'All' : cat.capitalize()),
                               selected: isSelected,
                               onSelected: (_) => setState(() => _selectedCategory = cat),
-                              backgroundColor: AppTheme.darkCard,
-                              selectedColor: AppTheme.primaryColor.withOpacity(0.3),
+                              backgroundColor: Theme.of(context).colorScheme.surfaceVariant ?? Theme.of(context).colorScheme.surface,
+                              selectedColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                               labelStyle: TextStyle(
-                                color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary,
+                                color: isSelected ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                               ),
                             ),
                           );
@@ -372,7 +376,7 @@ class _LearningScreenState extends State<LearningScreen> {
                       Container(
                         padding: const EdgeInsets.all(32),
                         decoration: BoxDecoration(
-                          color: AppTheme.darkCard,
+                          color: Theme.of(context).colorScheme.surfaceVariant ?? Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Center(
