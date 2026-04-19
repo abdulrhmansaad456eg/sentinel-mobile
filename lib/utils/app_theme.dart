@@ -64,13 +64,14 @@ class AppTheme {
 
   // ==========================================
   // BACKWARD COMPATIBILITY ALIASES (Light Theme)
+  // Using const values so they work in const contexts
   // ==========================================
-  static Color get primaryColor => lightPrimary;
-  static Color get secondaryColor => lightSecondary;
-  static Color get accentColor => lightAccent;
-  static Color get textPrimary => lightTextPrimary;
-  static Color get textSecondary => lightTextSecondary;
-  static Color get textMuted => lightTextMuted;
+  static const Color primaryColor = Color(0xFF0EA5E9);      // Same as lightPrimary
+  static const Color secondaryColor = Color(0xFF06B6D4);    // Same as lightSecondary
+  static const Color accentColor = Color(0xFF8B5CF6);       // Same as lightAccent
+  static const Color textPrimary = Color(0xFF0C4A6E);   // Same as lightTextPrimary
+  static const Color textSecondary = Color(0xFF0369A1); // Same as lightTextSecondary
+  static const Color textMuted = Color(0xFF64748B);     // Same as lightTextMuted
 
   static ThemeData get darkTheme {
     return ThemeData(
