@@ -62,12 +62,15 @@ class AppTheme {
     );
   }
 
-  static LinearGradient get scoreGradient {
-    return const LinearGradient(
-      colors: [errorColor, warningColor, successColor, infoColor],
-      stops: [0.0, 0.3, 0.7, 1.0],
-    );
-  }
+  // ==========================================
+  // BACKWARD COMPATIBILITY ALIASES (Light Theme)
+  // ==========================================
+  static Color get primaryColor => lightPrimary;
+  static Color get secondaryColor => lightSecondary;
+  static Color get accentColor => lightAccent;
+  static Color get textPrimary => lightTextPrimary;
+  static Color get textSecondary => lightTextSecondary;
+  static Color get textMuted => lightTextMuted;
 
   static ThemeData get darkTheme {
     return ThemeData(
@@ -226,13 +229,6 @@ class AppTheme {
       colors: [darkPrimary, darkSecondary],
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-    );
-  }
-
-  static LinearGradient get scoreGradient {
-    return const LinearGradient(
-      colors: [errorColor, warningColor, successColor, primaryColor],
-      stops: [0.0, 0.3, 0.7, 1.0],
     );
   }
 
