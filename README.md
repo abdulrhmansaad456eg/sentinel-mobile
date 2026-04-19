@@ -1,4 +1,4 @@
-# 🔒 Sentinel Mobile
+#  Sentinel Mobile
 
 Your personal cybersecurity companion. Built with Flutter, Sentinel helps you build better security habits, analyze password strength, identify potential threats, and learn essential cybersecurity practices — all completely offline.
 
@@ -9,32 +9,32 @@ Your personal cybersecurity companion. Built with Flutter, Sentinel helps you bu
   <img src="https://img.shields.io/badge/Android-5.0+-3DDC84?logo=android" alt="Android">
 </p>
 
-## ✨ Features
+##  Features
 
-### 🛡️ Security Dashboard
+###  Security Dashboard
 Get a comprehensive view of your digital security posture with a visual security score and detailed category breakdown.
 
-### 🔐 Password Analyzer
+###  Password Analyzer
 Real-time password strength analysis with actionable suggestions to improve your credentials across all accounts.
 
-### ⚠️ Threat Checker
+###  Threat Checker
 Simulated security scans that identify potential vulnerabilities and provide personalized recommendations to stay protected.
 
-### ✅ Security Habits Tracker
+###  Security Habits Tracker
 Build and maintain 23+ essential security habits with daily tracking, progress visualization, and streak counters.
 
-### 📚 Learning Center
+###  Learning Center
 Comprehensive educational content covering:
 - **Fundamentals**: Password security, 2FA, device security
 - **Awareness**: Phishing, social engineering, malware
 - **Technical**: Network security, VPN usage, browser security
 
-### 🌍 Multi-language Support
+###  Multi-language Support
 - English (EN)
 - Arabic (AR) with full RTL support
 - Korean (KO)
 
-### 🎨 Dynamic Themes
+###  Dynamic Themes
 - **Light Theme**: Fresh Ocean Breeze — calming blues and clean whites
 - **Dark Theme**: Deep Space Midnight — amber accents on deep navy
 - Seamless toggle with completely distinct color palettes
