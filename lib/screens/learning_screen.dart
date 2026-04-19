@@ -237,8 +237,6 @@ class _LearningScreenState extends State<LearningScreen> {
         return AppTheme.warningColor;
       case 'technical':
         return AppTheme.accentColor;
-      case 'advanced':
-        return const Color(0xFF7C3AED); // Purple for advanced
       default:
         return AppTheme.infoColor;
     }
@@ -254,8 +252,6 @@ class _LearningScreenState extends State<LearningScreen> {
         return Icons.psychology;
       case 'technical':
         return Icons.computer;
-      case 'advanced':
-        return Icons.star;
       default:
         return Icons.book;
     }

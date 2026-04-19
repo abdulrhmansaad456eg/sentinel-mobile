@@ -1,16 +1,43 @@
-# Sentinel Mobile
+# 🔒 Sentinel Mobile
 
-A smart security companion app built with Flutter. Track your security habits, analyze password strength, check for threats, and learn about cybersecurity - all offline.
+Your personal cybersecurity companion. Built with Flutter, Sentinel helps you build better security habits, analyze password strength, identify potential threats, and learn essential cybersecurity practices — all completely offline.
 
-## Features
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.24+-02569B?logo=flutter" alt="Flutter">
+  <img src="https://img.shields.io/badge/Dart-3.0+-0175C2?logo=dart" alt="Dart">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/Android-5.0+-3DDC84?logo=android" alt="Android">
+</p>
 
-- **Security Dashboard**: Visual security score with category breakdown
-- **Password Analyzer**: Real-time strength analysis with improvement suggestions
-- **Threat Checker**: Simulated security scan with recommendations
-- **Security Habits Tracker**: Build and track daily security habits
-- **Learning Center**: Educational content on cybersecurity topics
-- **Multi-language Support**: English, Arabic (RTL), and Korean
-- **Dark Theme**: Professional cybersecurity aesthetic
+## ✨ Features
+
+### 🛡️ Security Dashboard
+Get a comprehensive view of your digital security posture with a visual security score and detailed category breakdown.
+
+### 🔐 Password Analyzer
+Real-time password strength analysis with actionable suggestions to improve your credentials across all accounts.
+
+### ⚠️ Threat Checker
+Simulated security scans that identify potential vulnerabilities and provide personalized recommendations to stay protected.
+
+### ✅ Security Habits Tracker
+Build and maintain 23+ essential security habits with daily tracking, progress visualization, and streak counters.
+
+### 📚 Learning Center
+Comprehensive educational content covering:
+- **Fundamentals**: Password security, 2FA, device security
+- **Awareness**: Phishing, social engineering, malware
+- **Technical**: Network security, VPN usage, browser security
+
+### 🌍 Multi-language Support
+- English (EN)
+- Arabic (AR) with full RTL support
+- Korean (KO)
+
+### 🎨 Dynamic Themes
+- **Light Theme**: Fresh Ocean Breeze — calming blues and clean whites
+- **Dark Theme**: Deep Space Midnight — amber accents on deep navy
+- Seamless toggle with completely distinct color palettes
 
 ## Tech Stack
 

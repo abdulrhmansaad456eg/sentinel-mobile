@@ -1,36 +1,73 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Modern Blue Theme Colors
-  static const Color primaryColor = Color(0xFF3B82F6);      // Vibrant Blue
-  static const Color secondaryColor = Color(0xFF06B6D4);    // Cyan
-  static const Color accentColor = Color(0xFF8B5CF6);     // Purple accent
-  static const Color tertiaryColor = Color(0xFF10B981);   // Emerald green
+  // ==========================================
+  // LIGHT THEME COLORS - Fresh Ocean Breeze
+  // ==========================================
+  static const Color lightPrimary = Color(0xFF0EA5E9);      // Sky Blue
+  static const Color lightSecondary = Color(0xFF06B6D4);    // Cyan
+  static const Color lightAccent = Color(0xFF8B5CF6);       // Violet
+  static const Color lightTertiary = Color(0xFF10B981);     // Emerald
   
-  // Dark theme colors
-  static const Color darkBackground = Color(0xFF0A1929);
-  static const Color darkSurface = Color(0xFF132F4C);
-  static const Color darkCard = Color(0xFF1E4976);
+  static const Color lightBackground = Color(0xFFF0F9FF); // Very light blue-white
+  static const Color lightSurface = Color(0xFFFFFFFF);     // Pure white
+  static const Color lightCard = Color(0xFFE0F2FE);       // Light blue tint
+  static const Color lightCardVariant = Color(0xFFDBEAFE); // Lighter blue
   
-  // Light theme colors
-  static const Color lightBackground = Color(0xFFF1F5F9);
-  static const Color lightSurface = Color(0xFFFFFFFF);
-  static const Color lightCard = Color(0xFFE2E8F0);
+  static const Color lightTextPrimary = Color(0xFF0C4A6E);   // Deep ocean blue
+  static const Color lightTextSecondary = Color(0xFF0369A1); // Ocean blue
+  static const Color lightTextMuted = Color(0xFF64748B);     // Slate
   
+  // ==========================================
+  // DARK THEME COLORS - Deep Space Midnight
+  // ==========================================
+  static const Color darkPrimary = Color(0xFFF59E0B);       // Amber/Gold
+  static const Color darkSecondary = Color(0xFFF97316);     // Orange
+  static const Color darkAccent = Color(0xFFEC4899);         // Pink
+  static const Color darkTertiary = Color(0xFF14B8A6);       // Teal
+  
+  static const Color darkBackground = Color(0xFF0F172A);    // Deep navy
+  static const Color darkSurface = Color(0xFF1E293B);       // Slate 800
+  static const Color darkCard = Color(0xFF334155);          // Slate 700
+  static const Color darkCardVariant = Color(0xFF475569);   // Slate 600
+  
+  static const Color darkTextPrimary = Color(0xFFF8FAFC);   // White
+  static const Color darkTextSecondary = Color(0xFFCBD5E1);   // Light slate
+  static const Color darkTextMuted = Color(0xFF94A3B8);      // Muted slate
+  
+  // ==========================================
+  // SHARED SEMANTIC COLORS
+  // ==========================================
   static const Color errorColor = Color(0xFFEF4444);
   static const Color warningColor = Color(0xFFF59E0B);
-  static const Color successColor = Color(0xFF10B981);
+  static const Color successColor = Color(0xFF22C55E);
   static const Color infoColor = Color(0xFF3B82F6);
   
-  // Dark theme text colors
-  static const Color textPrimary = Color(0xFFF8FAFC);
-  static const Color textSecondary = Color(0xFF94A3B8);
-  static const Color textMuted = Color(0xFF64748B);
+  // ==========================================
+  // GRADIENTS
+  // ==========================================
+  static LinearGradient get lightPrimaryGradient {
+    return const LinearGradient(
+      colors: [lightPrimary, lightSecondary],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
+  }
   
-  // Light theme text colors
-  static const Color lightTextPrimary = Color(0xFF0F172A);
-  static const Color lightTextSecondary = Color(0xFF475569);
-  static const Color lightTextMuted = Color(0xFF64748B);
+  static LinearGradient get darkPrimaryGradient {
+    return const LinearGradient(
+      colors: [darkPrimary, darkSecondary],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    );
+  }
+
+  static LinearGradient get scoreGradient {
+    return const LinearGradient(
+      colors: [errorColor, warningColor, successColor, infoColor],
+      stops: [0.0, 0.3, 0.7, 1.0],
+    );
+  }
 
   static ThemeData get darkTheme {
     return ThemeData(
@@ -38,20 +75,20 @@ class AppTheme {
       brightness: Brightness.dark,
       scaffoldBackgroundColor: darkBackground,
       colorScheme: const ColorScheme.dark(
-        primary: primaryColor,
-        secondary: secondaryColor,
+        primary: darkPrimary,
+        secondary: darkSecondary,
         surface: darkSurface,
         background: darkBackground,
         error: errorColor,
         onPrimary: Colors.black,
         onSecondary: Colors.black,
-        onSurface: textPrimary,
-        onBackground: textPrimary,
+        onSurface: darkTextPrimary,
+        onBackground: darkTextPrimary,
         onError: Colors.white,
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: darkSurface,
-        foregroundColor: textPrimary,
+        foregroundColor: darkTextPrimary,
         elevation: 0,
         centerTitle: true,
       ),
@@ -64,8 +101,8 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor,
-          foregroundColor: Colors.black,
+          backgroundColor: darkPrimary,
+          foregroundColor: Colors.white,
           elevation: 0,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
@@ -75,8 +112,8 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: primaryColor,
-          side: const BorderSide(color: primaryColor, width: 1.5),
+          foregroundColor: lightPrimary,
+          side: const BorderSide(color: lightPrimary, width: 1.5),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -85,7 +122,7 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: primaryColor,
+          foregroundColor: lightPrimary,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
       ),
@@ -102,72 +139,72 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryColor, width: 2),
+          borderSide: const BorderSide(color: lightPrimary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: errorColor, width: 2),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        hintStyle: const TextStyle(color: textMuted),
+        hintStyle: const TextStyle(color: darkTextMuted),
       ),
       textTheme: const TextTheme(
         displayLarge: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         displayMedium: TextStyle(
           fontSize: 28,
           fontWeight: FontWeight.bold,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         displaySmall: TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.w600,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         headlineLarge: TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.w600,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         headlineMedium: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         headlineSmall: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         titleLarge: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         titleMedium: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         titleSmall: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          color: textSecondary,
+          color: darkTextSecondary,
         ),
         bodyLarge: TextStyle(
           fontSize: 16,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         bodyMedium: TextStyle(
           fontSize: 14,
-          color: textPrimary,
+          color: darkTextPrimary,
         ),
         bodySmall: TextStyle(
           fontSize: 12,
-          color: textSecondary,
+          color: darkTextSecondary,
         ),
       ),
       dividerTheme: const DividerThemeData(
@@ -176,8 +213,8 @@ class AppTheme {
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: darkSurface,
-        selectedItemColor: primaryColor,
-        unselectedItemColor: textMuted,
+        selectedItemColor: darkPrimary,
+        unselectedItemColor: darkTextMuted,
         type: BottomNavigationBarType.fixed,
         elevation: 8,
       ),
@@ -186,7 +223,7 @@ class AppTheme {
 
   static LinearGradient get primaryGradient {
     return const LinearGradient(
-      colors: [primaryColor, secondaryColor],
+      colors: [darkPrimary, darkSecondary],
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     );
@@ -205,8 +242,8 @@ class AppTheme {
       brightness: Brightness.light,
       scaffoldBackgroundColor: lightBackground,
       colorScheme: const ColorScheme.light(
-        primary: primaryColor,
-        secondary: secondaryColor,
+        primary: lightPrimary,
+        secondary: lightSecondary,
         surface: lightSurface,
         background: lightBackground,
         error: errorColor,
@@ -231,7 +268,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryColor,
+          backgroundColor: lightPrimary,
           foregroundColor: Colors.white,
           elevation: 0,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
@@ -242,8 +279,8 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: primaryColor,
-          side: const BorderSide(color: primaryColor, width: 1.5),
+          foregroundColor: lightPrimary,
+          side: const BorderSide(color: lightPrimary, width: 1.5),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -252,7 +289,7 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: primaryColor,
+          foregroundColor: lightPrimary,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
       ),
@@ -269,7 +306,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryColor, width: 2),
+          borderSide: const BorderSide(color: lightPrimary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
