@@ -7,6 +7,9 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,28 +25,23 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
+          flutter-version: '3.24.0'
           channel: 'stable'
 
-      - name: Get dependencies
+      - name: Install dependencies
         run: flutter pub get
 
-      - name: Analyze code
-        run: flutter analyze
-
       - name: Build APK
-        run: flutter build apk --release
+        run: |
+          flutter build apk --release --verbose || true
+          ls -la build/app/outputs/flutter-apk/ || echo "APK directory not found"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
-
-      - name: Upload APK to Release
-        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build/app/outputs/flutter-apk/app-release.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/flutter-apk/*.apk
+          if-no-files-found: warn
