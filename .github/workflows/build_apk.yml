@@ -46,12 +46,11 @@ jobs:
           ls -la build/app/outputs/flutter-apk/ 2>&1 || echo "APK directory not found"
           find . -name "*.apk" 2>/dev/null | head -5 || echo "No APK files found anywhere"
 
-      - name: Upload APK
+      - name: Find and Upload APK
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: release-apk
           path: |
-            build/app/outputs/flutter-apk/app-release.apk
-            build/app/outputs/flutter-apk/*.apk
+            **/*.apk
           if-no-files-found: warn
