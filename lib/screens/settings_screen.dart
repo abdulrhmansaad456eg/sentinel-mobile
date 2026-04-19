@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/app_settings.dart';
 import '../services/storage_service.dart';
 import '../services/localization_service.dart';
+import '../services/theme_service.dart';
 import '../utils/app_theme.dart';
 import '../utils/constants.dart';
 import '../utils/helpers.dart';
@@ -51,10 +52,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _toggleDarkMode(bool value) async {
     if (_settings == null) return;
 
-    final updated = _settings!.copyWith(isDarkMode: value);
-    await StorageService.saveSettings(updated);
+    await ThemeService().setDarkMode(value);
 
-    setState(() => _settings = updated);
+    setState(() => _settings = _settings!.copyWith(isDarkMode: value));
   }
 
   Future<void> _toggleNotifications(bool value) async {
@@ -69,7 +69,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void _showLanguageSelector() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: AppTheme.darkSurface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -83,7 +83,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppTheme.textMuted,
+                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -92,7 +92,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Text(
               'select_language'.tr,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: AppTheme.textPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 16),
@@ -122,7 +122,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: Text(
                   Constants.languageNames[lang] ?? lang,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.textPrimary,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 trailing: isSelected
@@ -144,7 +144,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.darkSurface,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -164,7 +164,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(width: 12),
             Text(
               'about'.tr,
-              style: const TextStyle(color: AppTheme.textPrimary),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
           ],
         ),
@@ -175,7 +175,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Text(
               Constants.appName,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                color: AppTheme.textPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
@@ -234,7 +234,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppTheme.darkSurface,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -289,7 +289,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'Preferences',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: AppTheme.textPrimary,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -329,7 +329,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'Application',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: AppTheme.textPrimary,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -351,7 +351,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: Text(
                       '${Constants.appName} v${Constants.appVersion}',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: AppTheme.textMuted,
+                        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
                       ),
                     ),
                   ),
@@ -387,10 +387,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text(
           title.tr,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: AppTheme.textPrimary,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
-        trailing: trailing ?? const Icon(Icons.chevron_right, color: AppTheme.textMuted),
+        trailing: trailing ?? Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5)),
         onTap: onTap,
       ),
     );

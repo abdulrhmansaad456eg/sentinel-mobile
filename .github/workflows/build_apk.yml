@@ -34,6 +34,8 @@ jobs:
           echo "flutter.versionCode=1" >> android/local.properties
           echo "flutter.versionName=1.0.0" >> android/local.properties
           cat android/local.properties
+          echo "Flutter root: $FLUTTER_ROOT"
+          ls -la $FLUTTER_ROOT/packages/flutter_tools/gradle/ || echo "Directory check"
 
       - name: Install dependencies
         run: flutter pub get
@@ -45,6 +47,7 @@ jobs:
 
       - name: Build APK
         run: |
+          export FLUTTER_SDK=$FLUTTER_ROOT
           flutter build apk --release
 
       - name: List build outputs
