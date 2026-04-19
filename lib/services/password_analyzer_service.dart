@@ -26,7 +26,7 @@ class PasswordAnalyzerService {
     final hasUppercase = password.contains(RegExp(r'[A-Z]'));
     final hasLowercase = password.contains(RegExp(r'[a-z]'));
     final hasNumbers = password.contains(RegExp(r'[0-9]'));
-    final hasSpecialChars = password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>\[\]\\\/\-_=+`~;\']'));
+    final hasSpecialChars = password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>\[\]\\\/_\-=+`~;]'));
 
     int score = _calculateScore(
       length,

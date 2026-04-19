@@ -396,12 +396,3 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 }
-
-extension SettingsTranslation on String {
-  String get tr => LocalizationService.translate(this);
-  
-  String capitalize() {
-    if (isEmpty) return this;
-    return '${this[0].toUpperCase()}${substring(1)}';
-  }
-}
