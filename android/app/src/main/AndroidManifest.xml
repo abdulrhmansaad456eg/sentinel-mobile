@@ -2,7 +2,7 @@
     <application
         android:label="Sentinel"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@android:drawable/ic_menu_compass"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:theme="@style/LaunchTheme">
