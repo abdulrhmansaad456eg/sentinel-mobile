@@ -76,8 +76,8 @@ android/             # Android configuration
 
 1. Clone the repository:
 ```bash
-git clone <repo-url>
-cd sentinel_mobile
+git clone https://github.com/abdulrhmansaad456eg/sentinel-mobile.git
+cd sentinel-mobile
 ```
 
 2. Get dependencies:
